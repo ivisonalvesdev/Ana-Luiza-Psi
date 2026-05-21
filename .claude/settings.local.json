@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite *)",
+      "Bash(npm run *)",
+      "PowerShell(ls \"c:\\\\Users\\\\iviso\\\\OneDrive\\\\Área de Trabalho\\\\claude-code\\\\src\" | Where-Object { $_.PSIsContainer })",
+      "Bash(mkdir -p .vscode)",
+      "Bash(npm install *)",
+      "Bash(python3 -c \"from PIL import Image; img = Image.open\\(r'C:\\\\Users\\\\iviso\\\\OneDrive\\\\Área de Trabalho\\\\claude-code\\\\assets\\\\Logo-Sublogo\\\\Logotipo Principal Fundo rosa 03.png'\\); print\\(img.size, img.mode\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);const buf=fs.readFileSync\\('assets/Logo-Sublogo/Logotipo Principal Fundo rosa 03.png'\\);const w=buf.readUInt32BE\\(16\\);const h=buf.readUInt32BE\\(20\\);console.log\\(w+'x'+h+' px'\\)\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\iviso\\OneDrive\\Área de Trabalho\\claude-code"
+    ]
+  }
+}
