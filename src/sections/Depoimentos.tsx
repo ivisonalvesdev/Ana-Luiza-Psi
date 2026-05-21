@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Star, Quote, BadgeCheck, Users, TrendingUp, Heart, Award } from 'lucide-react'
+import { Star, Quote, BadgeCheck, Users, TrendingUp, Heart } from 'lucide-react'
 import { WHATSAPP_NUMBER } from '../assets'
 
 const stats = [
