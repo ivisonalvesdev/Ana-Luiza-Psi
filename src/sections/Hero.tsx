@@ -75,7 +75,7 @@ export default function Hero() {
 
         {/* ── COLUNA ESQUERDA — conteúdo ── */}
         <div className="flex items-start w-full lg:w-[48%] xl:w-[46%]
-                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[15vh] sm:pt-[18vh]">
+                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[40vh] sm:pt-[18vh]">
           <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 xl:gap-7 w-full -mt-[6vh]">
 
             {/* Logo — 1/4 superior oculto atrás da navbar (z-50) */}
