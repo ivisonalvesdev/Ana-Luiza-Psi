@@ -5,7 +5,7 @@ import { WHATSAPP_NUMBER } from '../assets'
 
 const stats = [
   { icon: Users,      value: '150+', label: 'Pacientes atendidas',  color: '#E8A4B8' },
-  { icon: TrendingUp, value: '5',    label: 'Anos de experiência',  color: '#F7E3EB' },
+  { icon: TrendingUp, value: '20+',  label: 'Anos de experiência',  color: '#F7E3EB' },
   { icon: Star,       value: '4.9★', label: 'Avaliação média',      color: '#E8A4B8' },
   { icon: Heart,      value: '98%',  label: 'Taxa de satisfação',   color: '#F7E3EB' },
 ]

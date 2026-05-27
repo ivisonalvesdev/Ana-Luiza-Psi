@@ -81,7 +81,7 @@
 
   /* Gradiente claro — para títulos sobre fundos escuros */
   .text-rosa-gradient {
-    background: linear-gradient(135deg, #F7E3EB 0%, #E8A4B8 55%, #F7E3EB 100%);
+    background: linear-gradient(135deg, #F0C0D4 0%, #D4608E 55%, #F0C0D4 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -163,6 +163,7 @@
   inset: 0;
   border-radius: 9999px;
   padding: 2px;
+  pointer-events: none;
   background: conic-gradient(
     from calc(var(--mouse-angle, 0deg) - 35deg),
     transparent 0%,

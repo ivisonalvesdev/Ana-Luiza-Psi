@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { MapPin, Heart } from 'lucide-react'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { logoRodape, INSTAGRAM, EMAIL, WHATSAPP_NUMBER } from '../assets'
+import { logoRodape, INSTAGRAM, EMAIL, WHATSAPP_NUMBER, ADDRESS_LINK } from '../assets'
 
 const navLinks = [
   { label: 'Início',      href: '#hero' },
@@ -174,9 +174,19 @@ export default function Footer() {
                   {EMAIL}
                 </a>
               </li>
-              <li className="flex items-start gap-2.5 font-sans text-sm text-white/45">
-                <MapPin size={14} className="mt-0.5 flex-shrink-0 text-brand-rosa/60" />
-                Pernambuco, PE · Online & Presencial
+              <li>
+                <a
+                  href={ADDRESS_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 font-sans text-sm text-white/45 hover:text-white transition-colors duration-200 group"
+                >
+                  <MapPin size={14} className="mt-0.5 flex-shrink-0 text-brand-rosa/60 group-hover:text-brand-rosa transition-colors duration-200" />
+                  <span>
+                    Rua Arnóbio Marques, 253 – Sala 1903<br />
+                    Santo Amaro · Recife, PE
+                  </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -184,7 +194,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-sans text-white/25 text-center sm:text-left relative z-10">
-          <span>© {new Date().getFullYear()} Ana Luiza | Psicóloga Clínica · CRP 12731 PE</span>
+          <span>© {new Date().getFullYear()} Ana Luiza | Psicóloga Clínica · CRP 02/12731</span>
           <span className="flex items-center gap-1.5">
             Desenvolvido com <Heart size={10} className="text-brand-rosa" fill="currentColor" /> por Ivison Dev
           </span>

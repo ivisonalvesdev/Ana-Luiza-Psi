@@ -24,4 +24,9 @@ export const mockup4 = new URL('../assets/Mockups/Mockup 04.jpg', import.meta.ur
 
 export const WHATSAPP_NUMBER = '5581985192492'
 export const INSTAGRAM       = 'https://www.instagram.com/analuvieira.psi'
-export const EMAIL           = 'contato@analuizapsi.com.br' // ← ajustar se necessário
+export const EMAIL           = 'Luiza.ana8@gmail.com'
+export const ADDRESS         = 'Rua Arnóbio Marques, 253 – Sala 1903\nEmpresarial Eng. Camilo Brito · Santo Amaro\nRecife – PE'
+export const ADDRESS_MAPS    = 'https://maps.google.com/maps?q=Empresarial+Engenheiro+Camilo+Brito,+Rua+Arnóbio+Marques+253,+Santo+Amaro,+Recife,+PE&output=embed&z=17'
+export const ADDRESS_LINK    = 'https://maps.app.goo.gl/search/Rua+Arnóbio+Marques+253+Santo+Amaro+Recife+PE'
+export const CRP             = 'CRP 02/12731'
+export const SESSION_DURATION = '50 min'

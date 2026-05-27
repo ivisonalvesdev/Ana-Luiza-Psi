@@ -3,16 +3,15 @@ import { useInView } from 'react-intersection-observer'
 import { CheckCircle, Sparkles } from 'lucide-react'
 import { fotoSobre, WHATSAPP_NUMBER } from '../assets'
 
+const tags = ['TCC', 'Online', 'Presencial · PE']
+
 const diferenciais = [
-  'Especialista em saúde mental feminina',
   'Terapia Cognitivo-Comportamental (TCC)',
-  'Pós-Graduada em Neuropsicologia',
   'Oficinas Terapêuticas e Palestras',
   'Atendimento online e presencial em PE',
-  'Ética e sigilo — CRP 12731 PE',
+  'Ética e sigilo — CRP 02/12731',
 ]
 
-const tags = ['TCC', 'Neuropsicologia', 'Online', 'Presencial · PE']
 
 export default function Sobre() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.08 })
@@ -106,7 +105,7 @@ export default function Sobre() {
                 <p className="font-sans text-[10px] sm:text-xs font-medium text-white/75 leading-tight">
                   Registro Profissional
                 </p>
-                <p className="font-serif text-sm sm:text-base font-semibold text-white">CRP 12731 PE</p>
+                <p className="font-serif text-sm sm:text-base font-semibold text-white">CRP 02/12731</p>
               </motion.div>
             </motion.div>
 
@@ -124,7 +123,7 @@ export default function Sobre() {
                            px-3 py-2 shadow-soft flex items-center gap-1.5"
               >
                 <Sparkles size={12} className="text-brand-rosa flex-shrink-0" />
-                <p className="font-sans text-[10px] font-semibold text-white/90">5 anos de experiência</p>
+                <p className="font-sans text-[10px] font-semibold text-white/90">Sua dor merece acolhimento</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -164,7 +163,7 @@ export default function Sobre() {
 
             <p className="font-sans text-sm sm:text-base text-white/90 leading-relaxed font-light">
               Psicóloga Clínica com CRP ativo em Pernambuco, especializada no cuidado da saúde
-              mental feminina. Acredito que cada mulher carrega uma história única — e que a
+              mental feminina. Acredito que cada mulher carrega uma história única  e que a
               terapia é o espaço onde essa história pode ser reescrita com mais leveza,
               autocompaixão e propósito.
             </p>
@@ -178,8 +177,7 @@ export default function Sobre() {
               autoestima. Além do consultório, conduzo{' '}
               <strong className="text-white font-medium">Oficinas Terapêuticas</strong>{' '}
               e{' '}
-              <strong className="text-white font-medium">Palestras</strong> voltadas ao
-              desenvolvimento emocional feminino.
+              <strong className="text-white font-medium">Palestras.</strong>
             </p>
 
             {/* Lista de diferenciais */}

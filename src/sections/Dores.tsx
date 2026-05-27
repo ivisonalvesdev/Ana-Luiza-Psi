@@ -6,7 +6,7 @@ const dores = [
   {
     icon: '🌊',
     numero: '01',
-    titulo: 'Ansiedade Feminina',
+    titulo: 'Ansiedade',
     desc: 'A sensação constante de que algo vai dar errado, o coração acelerado, a mente que não para — mesmo quando tudo parece bem por fora.',
   },
   {
@@ -155,7 +155,7 @@ export default function Dores() {
           </div>
 
           <p className="section-subtitle max-w-xl mx-auto">
-            Muitas mulheres chegam ao consultório sentindo que algo está "errado" — mas na
+            Muitas mulheres chegam ao consultório sentindo que algo está "errado"  mas na
             verdade, estão simplesmente sobrecarregadas e precisam de um espaço seguro para respirar.
           </p>
         </motion.div>

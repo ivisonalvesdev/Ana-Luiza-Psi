@@ -14,12 +14,12 @@ const perguntas = [
     a: 'O ideal é começar com sessões semanais, que permitem um processo mais contínuo e profundo. Conforme a evolução, podemos ajustar a frequência para quinzenal. Tudo é definido juntas, respeitando seu ritmo e necessidades.',
   },
   {
-    q: 'Atende por convênio ou plano de saúde?',
-    a: 'Por enquanto, os atendimentos são particulares. Mas você pode solicitar recibo para reembolso junto ao seu plano de saúde, caso o mesmo ofereça essa cobertura. Entre em contato para conversarmos sobre formas de pagamento.',
+    q: 'Quais são as formas de pagamento? Atende por convênio?',
+    a: 'Os atendimentos são particulares — aceito PIX e cartão de crédito. Você também pode solicitar recibo para reembolso junto ao seu plano de saúde, caso ele ofereça essa cobertura. Para saber os valores atuais, é só me chamar no WhatsApp!',
   },
   {
-    q: 'Quanto tempo dura a terapia?',
-    a: 'Depende de cada pessoa e do objetivo terapêutico. A TCC é uma abordagem de curto a médio prazo — muitas pessoas percebem melhoras significativas já nos primeiros meses. O processo é nosso juntas e revisamos o progresso regularmente.',
+    q: 'Quanto tempo dura a terapia e cada sessão?',
+    a: 'Cada sessão tem duração de 50 minutos. Já o processo terapêutico depende de cada pessoa e do objetivo: a TCC é uma abordagem de curto a médio prazo — muitas pessoas percebem melhoras significativas já nos primeiros meses. O progresso é acompanhado juntas e ajustado conforme sua evolução.',
   },
   {
     q: 'É seguro falar sobre tudo nas sessões?',

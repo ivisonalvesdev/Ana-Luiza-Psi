@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* Escurecimento lateral esquerda */}
       <div className="absolute inset-0 bg-gradient-to-r
-                      from-black/55 via-black/12 to-transparent
+                      from-black/90 via-black/60 to-transparent
                       pointer-events-none" />
 
       {/* Escurecimento topo */}
@@ -70,23 +70,30 @@ export default function Hero() {
                       bg-gradient-to-b from-black/35 to-transparent
                       pointer-events-none" />
 
+      {/* Ponto de sombra circular — apenas desktop */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block"
+           style={{ background: `
+  radial-gradient(circle 110px at 61.5% 37%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%),
+  radial-gradient(circle 330px at 65% 70%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)
+` }} />
+
       {/* Layout principal */}
       <div className="relative z-10 flex h-full">
 
         {/* ── COLUNA ESQUERDA — conteúdo ── */}
-        <div className="flex items-start w-full lg:w-[48%] xl:w-[46%]
-                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[40vh] sm:pt-[18vh]">
-          <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 xl:gap-7 w-full -mt-[6vh]">
+        <div className="flex items-start lg:items-center w-full lg:w-[48%] xl:w-[46%]
+                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[40vh] sm:pt-[18vh] lg:pt-0 lg:pb-8">
+          <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-4 xl:gap-6 2xl:gap-6 3xl:gap-7 w-full -mt-[6vh] lg:mt-0">
 
             {/* Logo — 1/4 superior oculto atrás da navbar (z-50) */}
             <motion.div
               {...fadeUp(0.10)}
-              className="-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-9 xl:-mb-11 relative z-0"
+              className="-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-6 xl:-mb-10 2xl:-mb-10 3xl:-mb-11 relative z-0"
             >
               <motion.img
                 src={logoRosa}
                 alt="Ana Luiza | Psicóloga"
-                className="h-44 sm:h-52 md:h-52 lg:h-72 xl:h-80 2xl:h-[22rem] w-auto cursor-pointer"
+                className="h-44 sm:h-52 md:h-52 lg:h-60 xl:h-80 2xl:h-80 3xl:h-[22rem] w-auto cursor-pointer"
                 animate={{ x: [-7, 7, -7] }}
                 transition={{ duration: 6.5, ease: 'easeInOut' as const, repeat: Infinity, delay: 0.85 }}
                 onClick={() => document.querySelector('#hero')?.scrollIntoView({ behavior: 'smooth' })}
@@ -96,8 +103,9 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               {...fadeUp(0.28)}
-              className="relative z-10 font-serif leading-relaxed text-white -mt-[4vh] sm:-mt-[5vh] lg:-mt-[6vh] xl:-mt-[7vh]
-                         text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[2.8rem] xl:text-[3.4rem] 2xl:text-[4rem]"
+              className="relative z-10 font-serif font-medium text-white -mt-[4vh] sm:-mt-[5vh] lg:-mt-[2vh] xl:-mt-[5vh] 2xl:-mt-[5vh] 3xl:-mt-[7vh]
+                         leading-[1.15] sm:leading-[1.05] lg:leading-[0.92] xl:leading-[0.90] 2xl:leading-[0.90] 3xl:leading-[0.88]
+                         text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[1.9rem] xl:text-[3.0rem] 2xl:text-[3.4rem] 3xl:text-[4rem]"
             >
               Reescreva sua história e sinta{' '}
               <em className="not-italic text-rosa-gradient">
@@ -108,7 +116,7 @@ export default function Hero() {
             {/* Frase script */}
             <motion.p
               {...fadeUp(0.40)}
-              className="relative z-10 font-script text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/75"
+              className="relative z-10 font-script text-sm sm:text-base md:text-lg lg:text-base xl:text-xl 2xl:text-2xl 3xl:text-2xl text-white/75"
             >
               "Acolhimento, sensibilidade e compromisso."
             </motion.p>
@@ -116,7 +124,7 @@ export default function Hero() {
             {/* Subheadline */}
             <motion.p
               {...fadeUp(0.50)}
-              className="relative z-10 font-sans text-xs sm:text-sm lg:text-base xl:text-lg leading-relaxed text-white/70 font-light max-w-sm sm:max-w-md xl:max-w-xl"
+              className="relative z-10 font-sans text-xs sm:text-sm lg:text-sm xl:text-base 2xl:text-base 3xl:text-lg leading-relaxed text-white/70 font-light max-w-sm sm:max-w-md lg:max-w-sm xl:max-w-lg 2xl:max-w-lg 3xl:max-w-xl"
             >
               Acolhimento especializado para mulheres 30+ que buscam superar a ansiedade,
               a autocrítica e a sobrecarga emocional através da{' '}
@@ -135,9 +143,12 @@ export default function Hero() {
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá%20Ana%20Luiza,%20gostaria%20de%20agendar%20uma%20consulta!`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-vinho justify-center shadow-md !text-sm !px-5 !py-3 !min-h-[44px]
-                             sm:!px-6 sm:!py-3.5 sm:!min-h-[48px]
-                             xl:!text-base xl:!px-8 xl:!py-4 xl:!min-h-[54px]
+                  className="btn-vinho justify-center shadow-md !text-xs !px-4 !py-2.5 !min-h-[38px]
+                             sm:!text-sm sm:!px-5 sm:!py-3 sm:!min-h-[42px]
+                             lg:!text-xs lg:!px-4 lg:!py-2.5 lg:!min-h-[36px]
+                             xl:!text-base xl:!px-7 xl:!py-3.5 xl:!min-h-[48px]
+                             2xl:!text-base 2xl:!px-7 2xl:!py-3.5 2xl:!min-h-[50px]
+                             3xl:!text-base 3xl:!px-8 3xl:!py-4 3xl:!min-h-[54px]
                              w-full lg:w-auto"
                 >
                   <WaIcon />
@@ -150,9 +161,12 @@ export default function Hero() {
                   onClick={() => document.querySelector('#sobre')?.scrollIntoView({ behavior: 'smooth' })}
                   className="inline-flex items-center gap-2 justify-center
                              border border-white/60 text-white font-sans font-medium
-                             rounded-full px-5 py-3 text-sm min-h-[44px]
-                             sm:px-6 sm:py-3.5 sm:min-h-[48px]
-                             xl:px-8 xl:py-4 xl:text-base xl:min-h-[54px]
+                             rounded-full px-4 py-2.5 text-xs min-h-[38px]
+                             sm:px-5 sm:py-3 sm:text-sm sm:min-h-[42px]
+                             lg:px-4 lg:py-2.5 lg:text-xs lg:min-h-[36px]
+                             xl:px-7 xl:py-3.5 xl:text-base xl:min-h-[48px]
+                             2xl:px-7 2xl:py-3.5 2xl:text-base 2xl:min-h-[50px]
+                             3xl:px-8 3xl:py-4 3xl:text-base 3xl:min-h-[54px]
                              transition-colors duration-300 hover:bg-white/15
                              touch-manipulation backdrop-blur-sm w-full lg:w-auto"
                 >
@@ -169,7 +183,7 @@ export default function Hero() {
               {[
                 '🏛️ Online & Presencial',
                 '💬 TCC para Mulheres',
-                '🎓 Pós-Grad. Neuropsicologia',
+                '🎓 Especialista em Saúde Mental Feminina',
               ].map((item) => (
                 <span key={item} className="text-xs xl:text-sm font-sans text-white font-light drop-shadow-sm">
                   {item}
@@ -214,7 +228,7 @@ export default function Hero() {
                            px-4 py-2.5 backdrop-blur-md shadow-soft
                            border border-brand-blush/60">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-vinho flex-shrink-0 animate-pulse" />
-            Psicóloga Clínica · CRP 12731 PE
+            Psicóloga Clínica · CRP 02/12731
           </span>
         </motion.div>
       </motion.div>

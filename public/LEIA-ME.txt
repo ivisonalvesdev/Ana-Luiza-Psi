@@ -1,0 +1,36 @@
+========================================================
+  PASTA PUBLIC — Arquivos estáticos do site
+========================================================
+
+Arquivos colocados aqui ficam acessíveis na raiz do site.
+Ex: public/og-image.jpg  →  https://analuizavierapsicologa.com.br/og-image.jpg
+
+--------------------------------------------------------
+  OG IMAGE (obrigatório para o SEO funcionar 100%)
+--------------------------------------------------------
+
+Arquivo esperado:  og-image.jpg
+Dimensões ideais:  1200 × 630 pixels
+Formato:           JPG (qualidade ~85%)
+
+Essa imagem aparece quando alguém compartilha o link
+do site no WhatsApp, Instagram, Facebook ou LinkedIn.
+
+Sugestão de conteúdo:
+  - Fundo na cor vinho/rosa da identidade visual
+  - Logo da Ana Luiza à esquerda
+  - Foto da Ana Luiza à direita
+  - Texto: "Psicóloga Clínica | TCC para Mulheres"
+
+--------------------------------------------------------
+  FAVICON (ícone da aba do navegador)
+--------------------------------------------------------
+
+Arquivos esperados:
+  favicon-32.png       →  32 × 32 px
+  favicon-16.png       →  16 × 16 px
+  apple-touch-icon.png →  180 × 180 px  (iPhone/iPad)
+
+Pode usar o sublogo da Ana Luiza em fundo vinho.
+
+========================================================

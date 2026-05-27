@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { Wallet } from 'lucide-react'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { WHATSAPP_NUMBER, INSTAGRAM, logoFundoRosa } from '../assets'
+import { FaPix } from 'react-icons/fa6'
+import { WHATSAPP_NUMBER, INSTAGRAM, EMAIL, ADDRESS_MAPS, ADDRESS_LINK, logoFundoRosa } from '../assets'
 
 const cards = [
   {
@@ -29,13 +31,13 @@ const cards = [
     id: 'email',
     label: 'E-mail',
     desc: 'Para parcerias, contatos institucionais ou dúvidas mais detalhadas.',
-    value: 'Em breve',
-    href: null,
-    cta: 'Em breve',
+    value: EMAIL,
+    href: `mailto:${EMAIL}`,
+    cta: 'Enviar e-mail',
     iconBg: '#F0F4FF',
     iconColor: '#4285F4',
   },
-] as const
+]
 
 export default function Contato() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.12 })
@@ -166,11 +168,51 @@ export default function Contato() {
               </div>
             ))}
 
+            {/* ── Valores & Pagamento ── */}
+            <div className="relative overflow-hidden border-t border-brand-blush/60
+                            bg-gradient-to-r from-brand-vinho/[0.06] to-brand-rosa/[0.04]
+                            px-6 sm:px-8 py-5 flex items-center justify-between gap-4">
+              {/* Glow decorativo */}
+              <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(circle, rgba(123,28,66,0.08) 0%, transparent 70%)' }} />
+
+              <div className="flex flex-col gap-0.5">
+                <span className="font-sans text-sm font-semibold text-brand-charcoal">
+                  Valores & Pagamento
+                </span>
+                <span className="flex items-center gap-2 font-sans text-xs text-brand-muted font-light flex-wrap">
+                  <span className="flex items-center gap-1">
+                    <FaPix size={11} className="text-teal-600" />
+                    PIX
+                  </span>
+                  <span className="text-brand-muted/30">·</span>
+                  <span>Cartão de crédito</span>
+                </span>
+              </div>
+
+              <motion.a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá%20Ana%20Luiza,%20gostaria%20de%20saber%20os%20valores%20das%20consultas!`}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring' as const, stiffness: 320, damping: 18 }}
+                className="flex-shrink-0 inline-flex items-center gap-2
+                           bg-brand-vinho text-white font-sans font-medium text-xs
+                           rounded-full px-4 py-2.5 shadow-button
+                           hover:bg-brand-vinho-mid transition-colors duration-200
+                           touch-manipulation"
+              >
+                <Wallet size={14} />
+                Saber valores
+              </motion.a>
+            </div>
+
             {/* Rodapé do painel */}
             <div className="px-6 sm:px-8 py-4 bg-brand-blush/20 flex items-center gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-vinho/50 flex-shrink-0" />
               <span className="font-sans text-xs text-brand-muted font-light">
-                Atendimento online e presencial — Recife, PE · CRP 12731
+                Online & Presencial · Santo Amaro, Recife, PE · CRP 02/12731 · 50 min/sessão
               </span>
             </div>
           </motion.div>
@@ -183,21 +225,32 @@ export default function Contato() {
             className="flex flex-col gap-4"
           >
             {/* Info do consultório */}
-            <div className="rounded-2xl sm:rounded-3xl bg-white shadow-card border border-brand-blush/60 px-6 py-4 flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-rosa flex-shrink-0" />
-              <div>
-                <span className="font-serif text-base text-brand-vinho font-semibold">Nosso Consultório</span>
-                <span className="font-sans text-xs text-brand-muted font-light ml-2">· Ana Luiza Vieira · Psicóloga Clínica · Recife, PE</span>
+            <a
+              href={ADDRESS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl sm:rounded-3xl bg-white shadow-card border border-brand-blush/60 px-6 py-4
+                         flex items-start gap-3 group hover:border-brand-rosa/60 transition-colors duration-200"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-rosa flex-shrink-0 mt-1.5" />
+              <div className="flex flex-col gap-0.5">
+                <span className="font-serif text-base text-brand-vinho font-semibold group-hover:text-brand-vinho-mid transition-colors duration-200">
+                  Nosso Consultório
+                </span>
+                <span className="font-sans text-xs text-brand-muted font-light leading-relaxed">
+                  Rua Arnóbio Marques, 253 – Sala 1903 · Empresarial Eng. Camilo Brito<br />
+                  Santo Amaro · Recife, PE · CRP 02/12731 · Sessões de 50 min
+                </span>
               </div>
-            </div>
+            </a>
 
           {/* Google Maps */}
           <div
             className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-card border border-brand-blush/60 min-h-[360px]"
           >
             <iframe
-              title="Localização do consultório"
-              src="https://maps.google.com/maps?q=Recife,Pernambuco,Brasil&output=embed&z=13"
+              title="Localização do consultório – Rua Arnóbio Marques 253, Santo Amaro, Recife"
+              src={ADDRESS_MAPS}
               width="100%"
               height="100%"
               style={{ border: 0, display: 'block', minHeight: '360px' }}
