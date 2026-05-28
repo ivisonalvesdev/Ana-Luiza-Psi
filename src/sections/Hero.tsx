@@ -40,9 +40,9 @@ export default function Hero() {
       id="hero"
       className="relative w-full h-screen overflow-hidden"
     >
-      {/* Fundo desktop — imagem de ambiente */}
+      {/* Fundo desktop — imagem de ambiente com desfoque suave */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
+        className="absolute -inset-2 bg-cover bg-center bg-no-repeat hidden lg:block blur-sm"
         style={{ backgroundImage: `url(${ambiente4})` }}
       />
 
@@ -52,7 +52,7 @@ export default function Hero() {
           src={fotoHeroPrincipal}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-top [mix-blend-mode:multiply]"
+          className="absolute inset-0 w-full h-full object-cover object-top [mix-blend-mode:multiply] blur-sm scale-[1.03]"
         />
       </div>
 
@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* Escurecimento lateral esquerda */}
       <div className="absolute inset-0 bg-gradient-to-r
-                      from-black/90 via-black/60 to-transparent
+                      from-black/90 via-black/65 to-transparent
                       pointer-events-none" />
 
       {/* Escurecimento topo */}
@@ -70,12 +70,10 @@ export default function Hero() {
                       bg-gradient-to-b from-black/35 to-transparent
                       pointer-events-none" />
 
-      {/* Ponto de sombra circular — apenas desktop */}
+
+      {/* Sombra circular central pequena — apenas desktop */}
       <div className="absolute inset-0 pointer-events-none hidden lg:block"
-           style={{ background: `
-  radial-gradient(circle 110px at 61.5% 37%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%),
-  radial-gradient(circle 330px at 65% 70%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)
-` }} />
+           style={{ background: 'radial-gradient(circle 110px at 61.5% 37%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)' }} />
 
       {/* Layout principal */}
       <div className="relative z-10 flex h-full">
@@ -106,9 +104,10 @@ export default function Hero() {
               className="relative z-10 font-serif font-medium text-white -mt-[4vh] sm:-mt-[5vh] lg:-mt-[2vh] xl:-mt-[5vh] 2xl:-mt-[5vh] 3xl:-mt-[7vh]
                          leading-[1.15] sm:leading-[1.05] lg:leading-[0.92] xl:leading-[0.90] 2xl:leading-[0.90] 3xl:leading-[0.88]
                          text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[1.9rem] xl:text-[3.0rem] 2xl:text-[3.4rem] 3xl:text-[4rem]"
+              style={{ textShadow: '-1px -1px 1px rgba(0,0,0,0.55), 1px -1px 1px rgba(0,0,0,0.55), -1px 1px 1px rgba(0,0,0,0.55), 1px 1px 1px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.4)', WebkitTextStroke: '0.6px rgba(0,0,0,0.45)' }}
             >
               Reescreva sua história e sinta{' '}
-              <em className="not-italic text-rosa-gradient">
+              <em className="not-italic text-rosa-gradient" style={{ textShadow: 'none', WebkitTextStroke: '0px' }}>
                 orgulho da sua jornada.
               </em>
             </motion.h1>
@@ -249,7 +248,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Fade de transição */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[#F5EDE8] pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[#F5EDE8]/70 pointer-events-none z-30" />
     </section>
   )
 }

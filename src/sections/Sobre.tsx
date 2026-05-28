@@ -9,7 +9,7 @@ const diferenciais = [
   'Terapia Cognitivo-Comportamental (TCC)',
   'Oficinas Terapêuticas e Palestras',
   'Atendimento online e presencial em PE',
-  'Ética e sigilo — CRP 02/12731',
+  'Palestras de Saúde Mental — CRP 02/12731',
 ]
 
 
@@ -136,7 +136,7 @@ export default function Sobre() {
             className="flex flex-col gap-5 sm:gap-6"
           >
             <span className="font-script text-2xl sm:text-3xl text-brand-rosa">
-              conheça a sua psicóloga
+              conheça a sua psicóloga.
             </span>
 
             <h2 className="font-serif text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
@@ -163,9 +163,7 @@ export default function Sobre() {
 
             <p className="font-sans text-sm sm:text-base text-white/90 leading-relaxed font-light">
               Psicóloga Clínica com CRP ativo em Pernambuco, especializada no cuidado da saúde
-              mental feminina. Acredito que cada mulher carrega uma história única  e que a
-              terapia é o espaço onde essa história pode ser reescrita com mais leveza,
-              autocompaixão e propósito.
+              mental feminina. Acredito que a terapia é o espaço onde a mulher deixa de apenas sobreviver e começa a se escutar de verdade.
             </p>
 
             <p className="font-sans text-sm text-white/75 leading-relaxed font-light">

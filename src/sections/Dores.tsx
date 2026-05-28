@@ -56,6 +56,9 @@ function DorCard({ icon, numero, titulo, desc, delay }: {
       className="card-spotlight group relative bg-brand-vinho rounded-2xl sm:rounded-3xl p-5 sm:p-6
                  shadow-button overflow-hidden hover:shadow-glow transition-shadow duration-300 cursor-default"
     >
+      {/* Scan line */}
+      <div className="scan-line-hover" />
+
       {/* Brilho de fundo no hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl sm:rounded-3xl"
         style={{ background: 'radial-gradient(circle at 50% 0%, rgba(232,164,184,0.12) 0%, transparent 70%)' }} />
