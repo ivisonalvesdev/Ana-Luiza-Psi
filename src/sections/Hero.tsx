@@ -52,7 +52,7 @@ export default function Hero() {
           src={fotoHeroPrincipal}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-top [mix-blend-mode:multiply] blur-sm scale-[1.03]"
+          className="absolute inset-0 w-full h-full object-cover [object-position:40%_top] [mix-blend-mode:multiply] scale-[1.03]"
         />
       </div>
 
@@ -60,10 +60,15 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none
                       bg-[radial-gradient(ellipse_at_center,transparent_38%,rgba(0,0,0,0.62)_100%)]" />
 
-      {/* Escurecimento lateral esquerda */}
-      <div className="absolute inset-0 bg-gradient-to-r
+      {/* Escurecimento lateral esquerda — apenas desktop */}
+      <div className="hidden sm:block absolute inset-0 bg-gradient-to-r
                       from-black/90 via-black/65 to-transparent
                       pointer-events-none" />
+
+      {/* Sombra inferior mobile — legibilidade do texto */}
+      <div className="sm:hidden absolute bottom-0 left-0 right-0 h-[52%]
+                      bg-gradient-to-t from-black/75 via-black/35 to-transparent
+                      pointer-events-none z-[1]" />
 
       {/* Escurecimento topo */}
       <div className="absolute top-0 left-0 right-0 h-48
@@ -80,20 +85,20 @@ export default function Hero() {
 
         {/* ── COLUNA ESQUERDA — conteúdo ── */}
         <div className="flex items-start lg:items-center w-full lg:w-[48%] xl:w-[46%]
-                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[40vh] sm:pt-[18vh] lg:pt-0 lg:pb-8">
-          <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-4 xl:gap-6 2xl:gap-6 3xl:gap-7 w-full -mt-[6vh] lg:mt-0">
+                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[56vh] sm:pt-[18vh] lg:pt-0 lg:pb-8">
+          <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-4 xl:gap-6 2xl:gap-6 3xl:gap-7 w-full mt-0 sm:-mt-[6vh] lg:mt-0">
 
-            {/* Logo — 1/4 superior oculto atrás da navbar (z-50) */}
+            {/* Logo — absoluto no mobile para não ocupar espaço no fluxo flex */}
             <motion.div
               {...fadeUp(0.10)}
-              className="-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-6 xl:-mb-10 2xl:-mb-10 3xl:-mb-11 relative z-0"
+              className="absolute top-[2vh] left-5 z-10 sm:relative sm:top-auto sm:left-auto sm:-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-6 xl:-mb-10 2xl:-mb-10 3xl:-mb-11"
             >
               <motion.img
                 src={logoRosa}
                 alt="Ana Luiza | Psicóloga"
-                className="h-44 sm:h-52 md:h-52 lg:h-60 xl:h-80 2xl:h-80 3xl:h-[22rem] w-auto cursor-pointer"
+                className="h-64 sm:h-52 md:h-52 lg:h-60 xl:h-80 2xl:h-80 3xl:h-[22rem] w-auto cursor-pointer"
                 animate={{ x: [-7, 7, -7] }}
-                transition={{ duration: 6.5, ease: 'easeInOut' as const, repeat: Infinity, delay: 0.85 }}
+                transition={{ duration: 10, ease: 'easeInOut' as const, repeat: Infinity, delay: 0.85 }}
                 onClick={() => document.querySelector('#hero')?.scrollIntoView({ behavior: 'smooth' })}
               />
             </motion.div>
@@ -101,7 +106,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               {...fadeUp(0.28)}
-              className="relative z-10 font-serif font-medium text-white -mt-[4vh] sm:-mt-[5vh] lg:-mt-[2vh] xl:-mt-[5vh] 2xl:-mt-[5vh] 3xl:-mt-[7vh]
+              className="hero-h1 relative z-10 font-serif font-medium text-white mt-0 sm:-mt-[5vh] lg:-mt-[2vh] xl:-mt-[5vh] 2xl:-mt-[5vh] 3xl:-mt-[7vh]
                          leading-[1.15] sm:leading-[1.05] lg:leading-[0.92] xl:leading-[0.90] 2xl:leading-[0.90] 3xl:leading-[0.88]
                          text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[1.9rem] xl:text-[3.0rem] 2xl:text-[3.4rem] 3xl:text-[4rem]"
               style={{ textShadow: '-1px -1px 1px rgba(0,0,0,0.55), 1px -1px 1px rgba(0,0,0,0.55), -1px 1px 1px rgba(0,0,0,0.55), 1px 1px 1px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.4)', WebkitTextStroke: '0.6px rgba(0,0,0,0.45)' }}

@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Wallet } from 'lucide-react'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { FaPix } from 'react-icons/fa6'
 import { WHATSAPP_NUMBER, INSTAGRAM, EMAIL, ADDRESS_MAPS, ADDRESS_LINK, logoFundoRosa } from '../assets'
 
 const cards = [
@@ -168,45 +166,6 @@ export default function Contato() {
               </div>
             ))}
 
-            {/* ── Valores & Pagamento ── */}
-            <div className="relative overflow-hidden border-t border-brand-blush/60
-                            bg-gradient-to-r from-brand-vinho/[0.06] to-brand-rosa/[0.04]
-                            px-6 sm:px-8 py-5 flex items-center justify-between gap-4">
-              {/* Glow decorativo */}
-              <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(123,28,66,0.08) 0%, transparent 70%)' }} />
-
-              <div className="flex flex-col gap-0.5">
-                <span className="font-sans text-sm font-semibold text-brand-charcoal">
-                  Valores & Pagamento
-                </span>
-                <span className="flex items-center gap-2 font-sans text-xs text-brand-muted font-light flex-wrap">
-                  <span className="flex items-center gap-1">
-                    <FaPix size={11} className="text-teal-600" />
-                    PIX
-                  </span>
-                  <span className="text-brand-muted/30">·</span>
-                  <span>Cartão de crédito</span>
-                </span>
-              </div>
-
-              <motion.a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá%20Ana%20Luiza,%20gostaria%20de%20saber%20os%20valores%20das%20consultas!`}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -1 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring' as const, stiffness: 320, damping: 18 }}
-                className="flex-shrink-0 inline-flex items-center gap-2
-                           bg-brand-vinho text-white font-sans font-medium text-xs
-                           rounded-full px-4 py-2.5 shadow-button
-                           hover:bg-brand-vinho-mid transition-colors duration-200
-                           touch-manipulation"
-              >
-                <Wallet size={14} />
-                Saber valores
-              </motion.a>
-            </div>
 
             {/* Rodapé do painel */}
             <div className="px-6 sm:px-8 py-4 bg-brand-blush/20 flex items-center gap-2.5">

@@ -1,0 +1,21 @@
+{
+  "name": "Ana Luiza Vieira | Psicóloga Clínica",
+  "short_name": "Ana Luiza Psi",
+  "description": "Psicóloga clínica em Recife. TCC para mulheres — ansiedade, autoestima e sobrecarga emocional.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#7B1C42",
+  "background_color": "#FDF8F5",
+  "icons": [
+    {
+      "src": "/android-chrome-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
