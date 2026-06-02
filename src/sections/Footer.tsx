@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { MapPin, Heart } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { logoRodape, INSTAGRAM, EMAIL, WHATSAPP_NUMBER, ADDRESS_LINK } from '../assets'
@@ -195,9 +195,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-sans text-white/25 text-center sm:text-left relative z-10">
           <span>© {new Date().getFullYear()} Ana Luiza | Psicóloga Clínica · CRP 02/12731</span>
-          <span className="flex items-center gap-1.5">
-            Desenvolvido com <Heart size={10} className="text-brand-rosa" fill="currentColor" /> por Ivison Dev
-          </span>
+          <span>Desenvolvido por Ivison Lima</span>
         </div>
       </div>
     </footer>
