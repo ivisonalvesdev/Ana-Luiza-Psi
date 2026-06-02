@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 @media (max-width: 639px) {
-  .hero-h1 { -webkit-text-stroke: 0 !important; }
+  .hero-h1 {
+    -webkit-text-stroke: 0 !important;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.55) !important;
+  }
 }
 
 @layer base {
@@ -18,6 +21,12 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    animation: pageReveal 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes pageReveal {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   ::selection {

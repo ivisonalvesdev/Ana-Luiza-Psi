@@ -103,9 +103,9 @@ export default function Depoimentos() {
         {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 36 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.95, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="text-center mb-12 sm:mb-16"
         >
           <span className="font-script text-2xl sm:text-3xl text-brand-rosa block mb-3">
@@ -131,7 +131,7 @@ export default function Depoimentos() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, delay: 0.15 }}
+          transition={{ duration: 0.85, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-14 sm:mb-18 max-w-3xl mx-auto"
         >
           {stats.map((s, i) => (

@@ -58,18 +58,11 @@ export default function Contato() {
         {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65 }}
+          transition={{ duration: 0.95, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="relative text-center mb-8 sm:mb-10"
         >
-          {/* Logo topo direito */}
-          <img
-            src={logoFundoRosa}
-            alt="Ana Luiza | Psicóloga"
-            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 h-24 lg:h-28 w-auto rounded-2xl"
-          />
-
           <span className="font-script text-2xl sm:text-3xl text-brand-rosa block mb-3">
             entre em contato
           </span>
@@ -95,7 +88,7 @@ export default function Contato() {
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: 'easeOut' as const, delay: 0.1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] as const, delay: 0.12 }}
             className="bg-white rounded-2xl sm:rounded-3xl shadow-card border border-brand-blush/60 overflow-hidden"
           >
             {cards.map((card, i) => (
@@ -180,7 +173,7 @@ export default function Contato() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: 'easeOut' as const, delay: 0.2 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] as const, delay: 0.22 }}
             className="flex flex-col gap-4"
           >
             {/* Info do consultório */}

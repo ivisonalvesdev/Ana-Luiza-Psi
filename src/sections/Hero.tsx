@@ -45,6 +45,12 @@ export default function Hero() {
         className="absolute -inset-2 bg-cover bg-center bg-no-repeat hidden lg:block blur-sm"
         style={{ backgroundImage: `url(${ambiente4})` }}
       />
+      <motion.div
+        className="absolute inset-0 pointer-events-none hidden lg:block bg-black/30"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, delay: 0.7 }}
+      />
 
       {/* Fundo mobile — foto da cliente com blend sobre tom rosé */}
       <div className="absolute inset-0 lg:hidden bg-[#C9A0A8]">
@@ -77,21 +83,21 @@ export default function Hero() {
 
 
       {/* Sombra circular central pequena — apenas desktop */}
-      <div className="absolute inset-0 pointer-events-none hidden lg:block"
+      <div className="absolute inset-0 pointer-events-none hidden min-[1650px]:block"
            style={{ background: 'radial-gradient(circle 110px at 61.5% 37%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)' }} />
 
       {/* Layout principal */}
       <div className="relative z-10 flex h-full">
 
         {/* ── COLUNA ESQUERDA — conteúdo ── */}
-        <div className="flex items-start lg:items-center w-full lg:w-[48%] xl:w-[46%]
-                        px-5 sm:px-10 lg:px-14 xl:px-20 pt-[56vh] sm:pt-[18vh] lg:pt-0 lg:pb-8">
-          <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-4 xl:gap-6 2xl:gap-6 3xl:gap-7 w-full mt-0 sm:-mt-[6vh] lg:mt-0">
+        <div className="flex items-start lg:items-center w-full lg:w-[48%] xl:w-[54%] 2xl:w-[46%]
+                        px-5 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-[56vh] sm:pt-[18vh] lg:pt-0 lg:pb-8">
+          <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-4 xl:gap-6 2xl:gap-6 3xl:gap-7 w-full xl:w-[750px] 2xl:w-full mt-0 sm:-mt-[6vh] lg:mt-0">
 
             {/* Logo — absoluto no mobile para não ocupar espaço no fluxo flex */}
             <motion.div
               {...fadeUp(0.10)}
-              className="absolute top-[2vh] left-5 z-10 sm:relative sm:top-auto sm:left-auto sm:-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-6 xl:-mb-10 2xl:-mb-10 3xl:-mb-11"
+              className="absolute -top-[2vh] left-0 z-10 sm:relative sm:top-auto sm:left-auto sm:-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-6 xl:-mb-10 2xl:-mb-10 3xl:-mb-11"
             >
               <motion.img
                 src={logoRosa}
@@ -204,8 +210,6 @@ export default function Hero() {
           transition={{ duration: 0.85, ease: 'easeOut' as const, delay: 0.2 }}
           className="hidden lg:flex flex-1 self-stretch items-end justify-center relative overflow-hidden"
         >
-          <div className="absolute inset-0 pointer-events-none
-                          bg-[radial-gradient(ellipse_75%_65%_at_55%_75%,rgba(253,248,245,0.52)_0%,rgba(247,227,235,0.25)_45%,transparent_70%)]" />
           <img
             src={fotoHeroPrincipal}
             alt="Ana Luiza, Psicóloga Clínica"
@@ -253,7 +257,8 @@ export default function Hero() {
       </motion.div>
 
       {/* Fade de transição */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[#F5EDE8]/70 pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none z-30"
+           style={{ background: 'linear-gradient(to bottom, rgba(245,237,232,0) 0%, rgba(245,237,232,0.02) 20%, rgba(245,237,232,0.06) 35%, rgba(245,237,232,0.14) 48%, rgba(245,237,232,0.26) 59%, rgba(245,237,232,0.42) 68%, rgba(245,237,232,0.60) 76%, rgba(245,237,232,0.78) 85%, rgba(245,237,232,0.92) 93%, rgba(245,237,232,1) 100%)' }} />
     </section>
   )
 }

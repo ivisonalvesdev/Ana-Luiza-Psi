@@ -22,6 +22,11 @@ export const ambiente4 = new URL('../assets/Ambiente/AMBIENTE ROSA 4.jpg', impor
 export const mockup1 = new URL('../assets/Mockups/Mockup 01.png', import.meta.url).href
 export const mockup4 = new URL('../assets/Mockups/Mockup 04.jpg', import.meta.url).href
 
+export const iconAnsiedade        = new URL('../assets/assets/icon/ansiedade.png',            import.meta.url).href
+export const iconSindromeImpostor = new URL('../assets/assets/icon/sindrome do impostor.png', import.meta.url).href
+export const iconSobrecarga       = new URL('../assets/assets/icon/sobrecarga de papeis.png', import.meta.url).href
+export const iconExaustao         = new URL('../assets/assets/icon/exaustao emocional.png',   import.meta.url).href
+
 export const WHATSAPP_NUMBER = '5581985192492'
 export const INSTAGRAM       = 'https://www.instagram.com/analuvieira.psi'
 export const EMAIL           = 'Luiza.ana8@gmail.com'

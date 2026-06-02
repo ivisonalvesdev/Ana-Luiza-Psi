@@ -41,7 +41,7 @@ function Pergunta({ q, a, delay, num }: { q: string; a: string; delay: number; n
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
-      transition={{ duration: 0.48, delay }}
+      transition={{ duration: 0.65, delay, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       className={`group relative border-b border-brand-blush/60 last:border-0 transition-colors duration-300
                   ${open ? 'bg-gradient-to-r from-brand-blush/25 to-transparent' : 'hover:bg-brand-blush/10'}`}
     >
@@ -118,9 +118,9 @@ export default function FAQ() {
 
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.95, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="text-center mb-12 sm:mb-14"
           >
             <span className="font-script text-2xl sm:text-3xl text-brand-rosa block mb-3">
@@ -154,7 +154,7 @@ export default function FAQ() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, delay: 0.15 }}
+            transition={{ duration: 0.85, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="bg-white rounded-2xl sm:rounded-3xl shadow-card border border-brand-blush/60 px-4 sm:px-6 lg:px-8 overflow-hidden"
           >
             {perguntas.map((p, i) => (

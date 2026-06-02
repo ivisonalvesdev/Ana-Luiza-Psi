@@ -19,7 +19,7 @@ export default function Sobre() {
   return (
     <section
       id="sobre"
-      className="section-py relative overflow-hidden"
+      className="section-py relative overflow-hidden z-[1]"
       style={{ background: 'linear-gradient(155deg, #1A0814 0%, #3A1026 45%, #561830 80%, #3A1026 100%)' }}
     >
 
@@ -45,7 +45,7 @@ export default function Sobre() {
           <motion.div
             initial={{ opacity: 0, x: -36 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, ease: 'easeOut' as const }}
+            transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="relative flex justify-center"
           >
             {/* Orb brilhante fundo da foto */}
@@ -114,16 +114,17 @@ export default function Sobre() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.45, delay: 0.85 }}
-              className="absolute top-8 right-0 sm:right-2 z-20"
+              className="absolute top-6 sm:top-8 -right-1 sm:right-2 z-20"
             >
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.8, ease: 'easeInOut', repeat: Infinity, delay: 0.4 }}
-                className="bg-white/12 backdrop-blur-md border border-white/22 rounded-xl
-                           px-3 py-2 shadow-soft flex items-center gap-1.5"
+                className="bg-white/12 backdrop-blur-md border border-white/22 rounded-lg sm:rounded-xl
+                           px-2 py-1 sm:px-3 sm:py-2 shadow-soft flex items-center gap-1 sm:gap-1.5"
               >
-                <Sparkles size={12} className="text-brand-rosa flex-shrink-0" />
-                <p className="font-sans text-[10px] font-semibold text-white/90">Sua dor merece acolhimento</p>
+                <Sparkles size={9} className="text-brand-rosa flex-shrink-0 sm:hidden" />
+                <Sparkles size={12} className="text-brand-rosa flex-shrink-0 hidden sm:block" />
+                <p className="font-sans text-[8px] sm:text-[10px] font-semibold text-white/90">Sua dor merece acolhimento</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -132,7 +133,7 @@ export default function Sobre() {
           <motion.div
             initial={{ opacity: 0, x: 36 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, ease: 'easeOut' as const, delay: 0.12 }}
+            transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] as const, delay: 0.14 }}
             className="flex flex-col gap-5 sm:gap-6"
           >
             <span className="font-script text-2xl sm:text-3xl text-brand-rosa">
