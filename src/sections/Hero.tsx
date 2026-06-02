@@ -64,7 +64,7 @@ export default function Hero() {
 
       {/* Vinheta radial */}
       <div className="absolute inset-0 pointer-events-none
-                      bg-[radial-gradient(ellipse_at_center,transparent_38%,rgba(0,0,0,0.62)_100%)]" />
+                      bg-[radial-gradient(ellipse_at_center,transparent_44%,rgba(0,0,0,0.46)_100%)]" />
 
       {/* Escurecimento lateral esquerda — apenas desktop */}
       <div className="hidden sm:block absolute inset-0 bg-gradient-to-r

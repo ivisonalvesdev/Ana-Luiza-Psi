@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
@@ -40,8 +40,32 @@ const cards = [
 export default function Contato() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.12 })
 
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const springX = useSpring(mouseX, { damping: 35, stiffness: 280 })
+  const springY = useSpring(mouseY, { damping: 35, stiffness: 280 })
+  const glowBg  = useTransform(
+    [springX, springY],
+    ([x, y]: number[]) =>
+      `radial-gradient(360px circle at ${x}px ${y}px, rgba(176,44,90,0.18) 0%, transparent 72%)`
+  )
+
+  const onMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    mouseX.set(e.clientX - rect.left)
+    mouseY.set(e.clientY - rect.top)
+  }
+
   return (
-    <section id="contato" className="section-py relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #F9ECF1 0%, #FCEEF4 50%, #F5E6EF 100%)' }}>
+    <section
+      id="contato"
+      className="section-py relative overflow-hidden"
+      style={{ background: 'linear-gradient(160deg, #F9ECF1 0%, #FCEEF4 50%, #F5E6EF 100%)' }}
+      onMouseMove={onMouseMove}
+    >
+
+      {/* Glow rastreador do mouse */}
+      <motion.div className="absolute inset-0 pointer-events-none z-[1]" style={{ background: glowBg }} />
 
       {/* Dot grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
