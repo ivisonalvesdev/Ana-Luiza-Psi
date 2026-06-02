@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { WHATSAPP_NUMBER, INSTAGRAM, EMAIL, ADDRESS_MAPS, ADDRESS_LINK, logoFundoRosa } from '../assets'
+import { WHATSAPP_NUMBER, INSTAGRAM, EMAIL, ADDRESS_MAPS, ADDRESS_LINK } from '../assets'
 
 const cards = [
   {
