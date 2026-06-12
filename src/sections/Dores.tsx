@@ -71,7 +71,7 @@ function DorCard({ Icon, numero, titulo, desc, delay }: {
         ref={cardRef}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
-        className="group relative bg-white/10 border border-white/40 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6
+        className="group relative bg-white/80 border border-white/70 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6
                    overflow-hidden transition-shadow duration-300 cursor-default"
         style={{
           willChange: 'transform',
