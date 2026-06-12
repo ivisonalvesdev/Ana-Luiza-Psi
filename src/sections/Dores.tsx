@@ -1,41 +1,37 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { iconAnsiedade, iconSindromeImpostor, iconSobrecarga, iconExaustao } from '../assets'
+import { Waves, VenetianMask, Layers, BatteryLow, type LucideIcon } from 'lucide-react'
 
 const dores = [
   {
-    icon: '🌊',
-    iconSrc: iconAnsiedade,
+    Icon: Waves,
     numero: '01',
     titulo: 'Ansiedade',
     desc: 'A sensação constante de que algo vai dar errado, o coração acelerado, a mente que não para — mesmo quando tudo parece bem por fora.',
   },
   {
-    icon: '🎭',
-    iconSrc: iconSindromeImpostor,
+    Icon: VenetianMask,
     numero: '02',
     titulo: 'Síndrome da Impostora',
     desc: 'Conquistou muito, mas uma voz interna sussurra que não merece, que logo vão descobrir que você "não é tão boa assim".',
   },
   {
-    icon: '⚖️',
-    iconSrc: iconSobrecarga,
+    Icon: Layers,
     numero: '03',
     titulo: 'Sobrecarga de Papéis',
     desc: 'Mãe, profissional, filha, esposa, amiga — você carrega tantos chapéus que esqueceu quem é quando está sozinha.',
   },
   {
-    icon: '🕯️',
-    iconSrc: iconExaustao,
+    Icon: BatteryLow,
     numero: '04',
     titulo: 'Exaustão Emocional',
     desc: 'O cansaço vai além do físico. É uma fadiga da alma, um vazio que nem o descanso consegue preencher completamente.',
   },
 ]
 
-function DorCard({ icon, iconSrc, numero, titulo, desc, delay }: {
-  icon: string; iconSrc?: string; numero: string; titulo: string; desc: string; delay: number
+function DorCard({ Icon, numero, titulo, desc, delay }: {
+  Icon: LucideIcon; numero: string; titulo: string; desc: string; delay: number
 }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [inViewRef, inView] = useInView({ triggerOnce: true, threshold: 0.08 })
@@ -75,7 +71,7 @@ function DorCard({ icon, iconSrc, numero, titulo, desc, delay }: {
         ref={cardRef}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
-        className="group relative bg-white/30 border border-white/60 rounded-2xl sm:rounded-3xl p-5 sm:p-6
+        className="group relative bg-white/10 border border-white/40 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6
                    overflow-hidden transition-shadow duration-300 cursor-default"
         style={{
           willChange: 'transform',
@@ -100,17 +96,15 @@ function DorCard({ icon, iconSrc, numero, titulo, desc, delay }: {
         {numero}
       </motion.span>
 
-      {/* Ícone */}
+      {/* Ícone — linha fina, rosa escuro, leve e acolhedor */}
       <div className="flex justify-center mb-4">
         <motion.div
           whileHover={{ scale: 1.15, rotate: 6 }}
           transition={{ type: 'spring' as const, stiffness: 300, damping: 14 }}
           className="flex items-center justify-center w-11 h-11 rounded-2xl
-                      bg-brand-vinho/10 text-xl
-                      group-hover:bg-brand-vinho/18 transition-colors duration-300">
-          {iconSrc
-            ? <img src={iconSrc} alt={titulo} className="w-7 h-7 object-contain" />
-            : icon}
+                      bg-brand-vinho-mid/[0.08]
+                      group-hover:bg-brand-vinho-mid/[0.14] transition-colors duration-300">
+          <Icon size={24} strokeWidth={1.5} className="text-brand-vinho-mid" />
         </motion.div>
       </div>
 

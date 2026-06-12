@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { logoRodape, INSTAGRAM, EMAIL, WHATSAPP_NUMBER, ADDRESS_LINK } from '../assets'
+import PrivacyPolicy from '../components/PrivacyPolicy'
 
 const navLinks = [
   { label: 'Início',      href: '#hero' },
@@ -19,6 +21,8 @@ const sociais = [
 ]
 
 export default function Footer() {
+  const [privacyOpen, setPrivacyOpen] = useState(false)
+
   return (
     <footer style={{ backgroundColor: '#5A1231' }} className="text-white relative overflow-hidden">
 
@@ -193,11 +197,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-sans text-white/25 text-center sm:text-left relative z-10">
+        <div className="mt-10 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-sans text-white/25 text-center sm:text-left relative z-10">
           <span>© {new Date().getFullYear()} Ana Luiza | Psicóloga Clínica · CRP 02/12731</span>
-          <span>Desenvolvido por Ivison Lima</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <button
+              onClick={() => setPrivacyOpen(true)}
+              className="text-white/45 hover:text-white transition-colors underline-offset-2 hover:underline touch-manipulation"
+            >
+              Política de Privacidade · LGPD
+            </button>
+            <span className="hidden sm:inline text-white/15">·</span>
+            <span>Desenvolvido por Ivison Lima</span>
+          </div>
         </div>
       </div>
+
+      <PrivacyPolicy open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </footer>
   )
 }
