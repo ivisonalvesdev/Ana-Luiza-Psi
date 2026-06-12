@@ -201,13 +201,13 @@ export default function Dores() {
         </div>
 
 
-        {/* Bloco citação — aparece suavemente, sem movimento */}
+        {/* Bloco citação — entra com fade-up, como o restante do site */}
         <div className="mt-12 sm:mt-16">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative bg-brand-vinho rounded-2xl sm:rounded-3xl px-8 py-10 sm:px-14 sm:py-12
                             max-w-3xl mx-auto overflow-hidden border border-brand-rosa/25 shadow-button">

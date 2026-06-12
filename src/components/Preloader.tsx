@@ -9,11 +9,13 @@ const ACCENT = '#9B2855'
  * de progresso que preenche conforme o número. Trava o scroll enquanto ativa
  * e some com um fade suave ao concluir. Apenas SVG + opacity (alta performance).
  */
-export default function Preloader() {
+export default function Preloader({ onDone }: { onDone?: () => void }) {
   const reduce = useReducedMotion()
   const [done, setDone] = useState(false)
   const [progress, setProgress] = useState(0)
   const loadedRef = useRef(false)
+  const onDoneRef = useRef(onDone)
+  onDoneRef.current = onDone
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -62,13 +64,13 @@ export default function Preloader() {
   const offset = circ * (1 - progress / 100)
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => onDoneRef.current?.()}>
       {!done && (
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-8"
           style={{ background: 'linear-gradient(155deg, #1A0814 0%, #3A1026 45%, #561830 80%, #3A1026 100%)' }}
         >

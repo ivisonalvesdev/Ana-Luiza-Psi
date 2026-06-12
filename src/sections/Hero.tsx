@@ -1,10 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ambiente4, fotoHeroPrincipal, logoRosa, WHATSAPP_NUMBER } from '../assets'
 
-const fadeUp = (delay = 0) => ({
+const fadeUp = (show: boolean, delay = 0) => ({
   initial:    { opacity: 0, y: 28 },
-  animate:    { opacity: 1, y: 0 },
+  animate:    show ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
   transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay },
 })
 
@@ -34,7 +34,16 @@ function SpotlightBtn({ children, className }: { children: React.ReactNode; clas
   )
 }
 
-export default function Hero() {
+export default function Hero({ start = false }: { start?: boolean }) {
+  // A entrada do Hero só dispara quando o preloader sai (start), com um
+  // fallback de segurança caso o sinal não chegue.
+  const [ready, setReady] = useState(false)
+  useEffect(() => { if (start) setReady(true) }, [start])
+  useEffect(() => {
+    const t = setTimeout(() => setReady(true), 6000)   // rede de segurança (falha do preloader)
+    return () => clearTimeout(t)
+  }, [])
+
   return (
     <section
       id="hero"
@@ -96,7 +105,7 @@ export default function Hero() {
 
             {/* Logo — absoluto no mobile para não ocupar espaço no fluxo flex */}
             <motion.div
-              {...fadeUp(0.10)}
+              {...fadeUp(ready, 0.10)}
               className="absolute -top-[2vh] left-0 z-10 sm:relative sm:top-auto sm:left-auto sm:-mt-[14vh] -mb-5 sm:-mb-7 lg:-mb-6 xl:-mb-10 2xl:-mb-10 3xl:-mb-11"
             >
               <motion.img
@@ -111,7 +120,7 @@ export default function Hero() {
 
             {/* Headline */}
             <motion.h1
-              {...fadeUp(0.28)}
+              {...fadeUp(ready, 0.28)}
               className="hero-h1 relative z-10 font-serif font-medium text-white mt-0 sm:-mt-[5vh] lg:-mt-[2vh] xl:-mt-[5vh] 2xl:-mt-[5vh] 3xl:-mt-[7vh]
                          leading-[1.15] sm:leading-[1.05] lg:leading-[0.92] xl:leading-[0.90] 2xl:leading-[0.90] 3xl:leading-[0.88]
                          text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[1.9rem] xl:text-[3.0rem] 2xl:text-[3.4rem] 3xl:text-[4rem]"
@@ -125,7 +134,7 @@ export default function Hero() {
 
             {/* Frase script */}
             <motion.p
-              {...fadeUp(0.40)}
+              {...fadeUp(ready, 0.40)}
               className="relative z-10 font-script text-sm sm:text-base md:text-lg lg:text-base xl:text-xl 2xl:text-2xl 3xl:text-2xl text-white/75"
             >
               "Acolhimento, sensibilidade e compromisso."
@@ -133,7 +142,7 @@ export default function Hero() {
 
             {/* Subheadline */}
             <motion.p
-              {...fadeUp(0.50)}
+              {...fadeUp(ready, 0.50)}
               className="relative z-10 font-sans text-xs sm:text-sm lg:text-sm xl:text-base 2xl:text-base 3xl:text-lg leading-relaxed text-white/70 font-light max-w-sm sm:max-w-md lg:max-w-sm xl:max-w-lg 2xl:max-w-lg 3xl:max-w-xl"
             >
               Acolhimento especializado para mulheres 30+ que buscam superar a ansiedade,
@@ -145,7 +154,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <motion.div
-              {...fadeUp(0.46)}
+              {...fadeUp(ready, 0.46)}
               className="relative z-10 flex flex-col gap-2.5 w-full lg:flex-row lg:w-auto pt-1"
             >
               <SpotlightBtn className="w-full lg:w-auto">
@@ -187,7 +196,7 @@ export default function Hero() {
 
             {/* Trust badges */}
             <motion.div
-              {...fadeUp(0.58)}
+              {...fadeUp(ready, 0.58)}
               className="relative z-10 flex flex-wrap gap-x-4 gap-y-1.5 xl:gap-x-6"
             >
               {[
@@ -206,7 +215,7 @@ export default function Hero() {
         {/* ── COLUNA DIREITA — foto hero ── */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] as const, delay: 0.25 }}
           className="hidden lg:flex flex-1 self-stretch items-end justify-center relative overflow-hidden"
         >
@@ -223,8 +232,8 @@ export default function Hero() {
       {/* Chip CRP flutuante */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.95, delay: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
+        animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+        transition={{ duration: 0.95, delay: 0.9, ease: [0.22, 1, 0.36, 1] as const }}
         className="absolute bottom-24 lg:bottom-28 left-[49%] lg:left-[51%] z-20 hidden lg:block"
       >
         <motion.div
@@ -244,8 +253,8 @@ export default function Hero() {
       {/* Scroll hint */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
+        animate={ready ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ delay: 1.1, duration: 0.8 }}
         className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 text-white/45 z-10"
       >
         <span className="text-[10px] font-sans tracking-widest uppercase">Descubra mais</span>

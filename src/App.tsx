@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Navbar          from './components/Navbar'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Preloader        from './components/Preloader'
@@ -11,12 +12,15 @@ import Contato          from './sections/Contato'
 import Footer           from './sections/Footer'
 
 export default function App() {
+  // Vira true quando o preloader termina → dispara a entrada do Hero
+  const [revealed, setRevealed] = useState(false)
+
   return (
     <>
-      <Preloader />
+      <Preloader onDone={() => setRevealed(true)} />
       <Navbar />
       <main>
-        <Hero />
+        <Hero start={revealed} />
         <SectionReveal><Dores /></SectionReveal>
         <SectionReveal><Sobre /></SectionReveal>
         <SectionReveal><Contato /></SectionReveal>
