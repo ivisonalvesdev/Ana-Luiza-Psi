@@ -1,5 +1,7 @@
 import Navbar          from './components/Navbar'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
+import Preloader        from './components/Preloader'
+import SectionReveal    from './components/SectionReveal'
 import Hero             from './sections/Hero'
 import Dores            from './sections/Dores'
 import Sobre            from './sections/Sobre'
@@ -11,14 +13,15 @@ import Footer           from './sections/Footer'
 export default function App() {
   return (
     <>
+      <Preloader />
       <Navbar />
       <main>
         <Hero />
-        <Dores />
-        <Sobre />
-        <Contato />
-        <Depoimentos />
-        <FAQ />
+        <SectionReveal><Dores /></SectionReveal>
+        <SectionReveal><Sobre /></SectionReveal>
+        <SectionReveal><Contato /></SectionReveal>
+        <SectionReveal><Depoimentos /></SectionReveal>
+        <SectionReveal><FAQ /></SectionReveal>
       </main>
       <Footer />
       <FloatingWhatsApp />

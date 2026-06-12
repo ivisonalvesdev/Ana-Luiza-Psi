@@ -24,9 +24,11 @@
     animation: pageReveal 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
+  /* Apenas opacity — evitar transform no body, senão ele vira o "containing
+     block" de elementos position:fixed (ex.: preloader/navbar) e os desloca. */
   @keyframes pageReveal {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
   ::selection {
@@ -288,4 +290,16 @@
 
 .group:hover .scan-line-hover {
   animation: scan-up 2.5s ease-in-out infinite;
+}
+
+/* ── Acessibilidade & performance: respeita "reduzir movimento" ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

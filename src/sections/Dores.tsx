@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { iconAnsiedade, iconSindromeImpostor, iconSobrecarga, iconExaustao } from '../assets'
 
@@ -130,34 +130,9 @@ function DorCard({ icon, iconSrc, numero, titulo, desc, delay }: {
 
 export default function Dores() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.12 })
-  const sectionRef = useRef<HTMLElement>(null)
-  const quoteRef   = useRef<HTMLDivElement>(null)
-
-  // Entrada: animação concentrada em ~35vh de scroll
-  const { scrollYProgress: entryP } = useScroll({
-    target: quoteRef,
-    offset: ['start end', 'start 0.62'],
-  })
-  const entryY       = useTransform(entryP, [0, 1], [80,   0])
-  const entryRotateX = useTransform(entryP, [0, 1], [34,   0])
-  const entryScale   = useTransform(entryP, [0, 1], [0.82, 1])
-  const cardOpacity  = useTransform(entryP, [0, 0.4], [0,   1])
-
-  // Saída: animação concentrada em ~55vh de scroll
-  const { scrollYProgress: exitP } = useScroll({
-    target: sectionRef,
-    offset: ['end 0.92', 'end 0.25'],
-  })
-  const exitY       = useTransform(exitP, [0, 1], [0, 260])
-  const exitRotateX = useTransform(exitP, [0, 1], [0,  34])
-  const exitScale   = useTransform(exitP, [0, 1], [1, 0.93])
-
-  const totalY       = useTransform([entryY, exitY],             ([e, x]) => Number(e) + Number(x))
-  const totalRotateX = useTransform([entryRotateX, exitRotateX], ([e, x]) => Number(e) + Number(x))
-  const totalScale   = useTransform([entryScale, exitScale],     ([e, x]) => Number(e) * Number(x))
 
   return (
-    <section ref={sectionRef} className="section-py relative z-[0]" style={{ background: 'linear-gradient(160deg, #F9ECF1 0%, #FCEEF4 50%, #F5E6EF 100%)' }}>
+    <section className="section-py relative z-[0]" style={{ background: 'linear-gradient(160deg, #F9ECF1 0%, #FCEEF4 50%, #F5E6EF 100%)' }}>
 
       {/* Dot grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.035]"
@@ -226,16 +201,13 @@ export default function Dores() {
         </div>
 
 
-        {/* Bloco citação — entra e sai com scroll rápido */}
-        <div ref={quoteRef} style={{ perspective: '1200px' }} className="mt-12 sm:mt-16">
+        {/* Bloco citação — aparece suavemente, sem movimento */}
+        <div className="mt-12 sm:mt-16">
           <motion.div
-            style={{
-              y: totalY,
-              scale: totalScale,
-              rotateX: totalRotateX,
-              opacity: cardOpacity,
-              transformOrigin: 'bottom center',
-            }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative bg-brand-vinho rounded-2xl sm:rounded-3xl px-8 py-10 sm:px-14 sm:py-12
                             max-w-3xl mx-auto overflow-hidden border border-brand-rosa/25 shadow-button">

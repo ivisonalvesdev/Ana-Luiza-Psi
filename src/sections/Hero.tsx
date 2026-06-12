@@ -5,7 +5,7 @@ import { ambiente4, fotoHeroPrincipal, logoRosa, WHATSAPP_NUMBER } from '../asse
 const fadeUp = (delay = 0) => ({
   initial:    { opacity: 0, y: 28 },
   animate:    { opacity: 1, y: 0 },
-  transition: { duration: 0.75, ease: 'easeOut' as const, delay },
+  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay },
 })
 
 const WaIcon = () => (
@@ -207,7 +207,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.85, ease: 'easeOut' as const, delay: 0.2 }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] as const, delay: 0.25 }}
           className="hidden lg:flex flex-1 self-stretch items-end justify-center relative overflow-hidden"
         >
           <img
@@ -224,7 +224,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 1.2, ease: 'easeOut' as const }}
+        transition={{ duration: 0.95, delay: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
         className="absolute bottom-24 lg:bottom-28 left-[49%] lg:left-[51%] z-20 hidden lg:block"
       >
         <motion.div
