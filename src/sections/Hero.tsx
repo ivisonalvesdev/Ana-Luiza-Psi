@@ -91,9 +91,15 @@ export default function Hero({ start = false }: { start?: boolean }) {
                       pointer-events-none" />
 
 
-      {/* Sombra circular central pequena — apenas desktop */}
-      <div className="absolute inset-0 pointer-events-none hidden min-[1650px]:block"
-           style={{ background: 'radial-gradient(circle 110px at 61.5% 37%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)' }} />
+      {/* Sombra circular central — surge por último, bem depois de toda a
+          entrada da seção, para "ancorar" a imagem da psicóloga */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none hidden min-[1650px]:block"
+        style={{ background: 'radial-gradient(circle 110px at 61.5% 37%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)' }}
+        initial={{ opacity: 0 }}
+        animate={ready ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1.3, delay: 2.5, ease: 'easeOut' as const }}
+      />
 
       {/* Layout principal */}
       <div className="relative z-10 flex h-full">

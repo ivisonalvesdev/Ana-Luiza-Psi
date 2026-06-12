@@ -1,31 +1,30 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Star, Quote, BadgeCheck, Users, TrendingUp, Heart } from 'lucide-react'
+import { Star, Quote, BadgeCheck, Users, Heart } from 'lucide-react'
 import { WHATSAPP_NUMBER } from '../assets'
 
 const stats = [
-  { icon: Users,      value: '150+', label: 'Pacientes atendidas',  color: '#E8A4B8' },
-  { icon: TrendingUp, value: '20+',  label: 'Anos de experiência',  color: '#F7E3EB' },
-  { icon: Star,       value: '4.9★',      label: 'Avaliação média',       color: '#E8A4B8' },
-  { icon: Heart,      value: '98%',        label: 'Taxa de satisfação',    color: '#F7E3EB' },
+  { icon: Users, value: '150+', label: 'Pacientes atendidas', color: '#E8A4B8' },
+  { icon: Star,  value: '4.9★', label: 'Avaliação média',     color: '#F7E3EB' },
+  { icon: Heart, value: '98%',  label: 'Taxa de satisfação',  color: '#E8A4B8' },
 ]
 
 const row1 = [
-  { nome: 'Maria S.',    tema: 'Ansiedade',         texto: 'A Ana Luiza transformou minha relação comigo mesma. Aprendi a identificar meus gatilhos e hoje vivo com muito mais leveza e autoconfiança.', light: false },
-  { nome: 'Carla M.',    tema: 'Autoestima',        texto: 'Cheguei ao consultório completamente perdida. Hoje reconheço meu valor e consigo colocar limites sem culpa.', light: true },
-  { nome: 'Fernanda C.', tema: 'TCC',               texto: 'A abordagem da TCC mudou a forma como processo meus pensamentos. A Ana Luiza é extremamente competente e acolhedora.', light: false },
-  { nome: 'Juliana R.',  tema: 'Sobrecarga',        texto: 'Eu era aquela pessoa que não conseguia dizer não para ninguém. As sessões me ensinaram a cuidar de mim sem me sentir egoísta.', light: true },
-  { nome: 'Patricia L.', tema: 'Saúde Mental',      texto: 'O espaço da terapia com a Ana Luiza é seguro e sem julgamentos. É um presente que me dei e que recomendo para toda mulher.', light: false },
-  { nome: 'Renata O.',   tema: 'Autoconhecimento',  texto: 'Em poucos meses já percebi mudanças significativas no meu comportamento e na forma como me relaciono com as pessoas ao meu redor.', light: true },
+  { nome: 'Letícia A.',  tema: 'Autoconfiança',    texto: 'A Ana Luiza transformou minha relação comigo mesma. Aprendi a identificar meus gatilhos e hoje vivo com muito mais leveza e autoconfiança.', light: false },
+  { nome: 'Vanessa M.',  tema: 'Autoestima',       texto: 'Cheguei ao consultório completamente perdida. Hoje reconheço meu valor e consigo colocar limites sem culpa.', light: true },
+  { nome: 'Priscila R.', tema: 'TCC',              texto: 'A abordagem da TCC mudou a forma como processo meus pensamentos. A Ana Luiza é extremamente competente e acolhedora.', light: false },
+  { nome: 'Daniela S.',  tema: 'Autocuidado',      texto: 'Eu era aquela pessoa que não conseguia dizer não para ninguém. As sessões me ensinaram a cuidar de mim sem me sentir egoísta.', light: true },
+  { nome: 'Tatiane F.',  tema: 'Acolhimento',      texto: 'O espaço da terapia com a Ana Luiza é seguro e sem julgamentos. É um presente que me dei e que recomendo para toda mulher.', light: false },
+  { nome: 'Cláudia M.',  tema: 'Relacionamentos',  texto: 'Em poucos meses já percebi mudanças significativas no meu comportamento e na forma como me relaciono com as pessoas ao meu redor.', light: true },
 ]
 
 const row2 = [
-  { nome: 'Amanda R.',  tema: 'Ansiedade Feminina',  texto: 'Finalmente encontrei um espaço onde me sinto realmente compreendida. A Ana Luiza tem uma sensibilidade única para trabalhar com mulheres.', light: true },
-  { nome: 'Beatriz A.', tema: 'Sínd. Impostora',     texto: 'Sempre achei que não merecia minhas conquistas. Hoje reconheço minha competência e paro de sabotar minhas próprias oportunidades.', light: false },
-  { nome: 'Camila F.',  tema: 'Desenvolvimento',     texto: 'A terapia foi um divisor de águas na minha vida. Aprendi ferramentas que uso todos os dias para gerenciar minha ansiedade com mais leveza.', light: true },
-  { nome: 'Mariana G.', tema: 'Papéis Femininos',    texto: 'Consegui reconectar com minha essência depois de anos me perdendo nos papéis de mãe, esposa e profissional. Gratidão eterna!', light: false },
-  { nome: 'Isabela T.', tema: 'Online',              texto: 'O atendimento online funcionou perfeitamente para minha rotina. Profissionalismo, empatia e resultados reais. Indico de olhos fechados.', light: true },
-  { nome: 'Larissa V.', tema: 'Crescimento',         texto: 'Cada sessão é uma descoberta sobre mim mesma. A Ana Luiza tem um dom especial para fazer perguntas que nos levam a grandes insights.', light: false },
+  { nome: 'Roberta L.',  tema: 'Saúde Feminina',     texto: 'Finalmente encontrei um espaço onde me sinto realmente compreendida. A Ana Luiza tem uma sensibilidade única para trabalhar com mulheres.', light: true },
+  { nome: 'Simone P.',   tema: 'Sínd. Impostora',    texto: 'Sempre achei que não merecia minhas conquistas. Hoje reconheço minha competência e paro de sabotar minhas próprias oportunidades.', light: false },
+  { nome: 'Aline C.',    tema: 'Ansiedade',          texto: 'A terapia foi um divisor de águas na minha vida. Aprendi ferramentas que uso todos os dias para gerenciar minha ansiedade com mais leveza.', light: true },
+  { nome: 'Gabriela T.', tema: 'Sobrecarga',         texto: 'Consegui reconectar com minha essência depois de anos me perdendo nos papéis de mãe, esposa e profissional. Gratidão eterna!', light: false },
+  { nome: 'Helena V.',   tema: 'Terapia Online',     texto: 'O atendimento online funcionou perfeitamente para minha rotina. Profissionalismo, empatia e resultados reais. Indico de olhos fechados.', light: true },
+  { nome: 'Bruna O.',    tema: 'Autoconhecimento',   texto: 'Cada sessão é uma descoberta sobre mim mesma. A Ana Luiza tem um dom especial para fazer perguntas que nos levam a grandes insights.', light: false },
 ]
 
 function Stars() {
@@ -132,7 +131,7 @@ export default function Depoimentos() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.85, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-14 sm:mb-18 max-w-3xl mx-auto"
+          className="grid grid-cols-3 gap-3 sm:gap-4 mb-14 sm:mb-18 max-w-2xl mx-auto"
         >
           {stats.map((s, i) => (
             <motion.div
